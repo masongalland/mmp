@@ -11,7 +11,7 @@ const app = express();
 
 //-----------------ENV----------------//
 
-const {DB_URI, SESSION_SECRET, PORT} = process.env;
+const {DB_URI, SESSION_SECRET, SERVER_PORT} = process.env;
 
 //---------INITIALIZE SERVER----------//
 
@@ -24,4 +24,4 @@ const initialize_web_server = async (app, port, db_uri, session_secret, connectD
 
 };
 
-initialize_web_server(app, PORT, DB_URI, SESSION_SECRET, connectDbTo, addMiddlewaresTo, addEndpointsTo);
+initialize_web_server(app, SERVER_PORT, DB_URI, SESSION_SECRET, connectDbTo, addMiddlewaresTo, addEndpointsTo);

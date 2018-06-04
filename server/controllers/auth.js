@@ -11,23 +11,22 @@ function signup(req, res) {
 	console.log("SIGNING UP", req.body);
 
 	const {
-		first_name,
-		last_name,
-		username,
-		email,
-		password
+		fn,
+		ln,
+		un,
+		em,
+		pw
 	} = req.body;
 
 	bcrypt.genSalt(10, (err, salt) => {
-		bcrypt.hash(password, salt, (err, hash) => {
+		bcrypt.hash(pw, salt, (err, hash) => {
 			req.db.create_user({
-					first_name,
-					last_name,
-					username,
-					email,
+					fn,
+					ln,
+					un,
+					em,
 					hash
 				})
-				.then(convertUser)
 				.then(user => {
 					req.session.user = user.id;
 					res.status(200).send(user);
@@ -65,7 +64,6 @@ function login(req, res) {
 							hash,
 							user_id: null
 						})
-						.then(convertUser)
 						.then(user => {
 							req.session.user = user.id;
 							res.status(200).send(user);
@@ -125,7 +123,6 @@ function resetPassword(req, res) {
 								newHash,
 								oldHash
 							})
-							.then(convertUser)
 							.then(user => {
 								req.session.user = user.id;
 								res.status(200).send(user);
@@ -149,7 +146,6 @@ function resetPassword(req, res) {
 										newHash,
 										oldHash
 									})
-									.then(convertUser)
 									.then(user => {
 										req.session.user = user.id;
 										res.status(200).send(user);
