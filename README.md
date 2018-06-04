@@ -1,11 +1,11 @@
-##Idea
+## Idea
 
 * Weekly meal planner
 * grocery-list generator
 * Digital recipe collection
 * Recipe sharer
 
-##Users
+## Users
 
 * People who struggle with meal planning and grocery shopping
 * People who want a place to store/access their own recipes
