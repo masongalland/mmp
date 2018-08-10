@@ -24,6 +24,7 @@ class App extends Component {
   handleSubmit(){
     axios.post('/auth/signup', this.state).then(response => {
       console.log(response.data)
+      this.setState({fn: "", ln: "", un: "", em: "", pw: ""})
     })
   }
 
